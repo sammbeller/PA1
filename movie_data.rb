@@ -1,11 +1,11 @@
+#movie_data.rb
 
 
+movies = []
 
-users = []
+movie_raw_data = File.new(test.txt)
 
-
-
-def parse_movies(movie_file)
+def parse_movies(movie_file, movie_array)
 
 	i = 0
 
@@ -17,32 +17,31 @@ def parse_movies(movie_file)
 
 		temp_arr = cur_line.split(|)
 
-		users[i][1] = temp_arr[2]
+		movie_array[i][1] = temp_arr[2]
 
-		users[i][2] = temp_arr[3]
+		movie_array[i][2] = temp_arr[3]
 
-		users[i][3] = temp_arr[5]
-
-		next = 4
+		movie_array[i][3] = temp_arr[5]
 
 		rem = 6
 
+		count = 0
+
 		while rem < temp_arr.size
 
-			if temp_arr[rem] = "0"
+			movie_array[i][4][count] = temp_arr[rem].to_i
 
-				users[i][next] = false
-
-			else
-
-				users[i][next] = true
-
-			end
-
-			next += 1
+			count += 1
 
 			rem += 1
 
 		end
 
+		cur_line = gets movie_file
+
 	end
+
+end
+
+
+parse_movies(movie_raw_data, movies).inspect
