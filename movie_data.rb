@@ -1,20 +1,30 @@
 #movie_data.rb
 
+#Begin parsing movie data
+
 movie_raw_data = File.new("test.txt", "r")
 
 def parse_movies(movie_file)
 
+	#This array will hold all of the data
 	movie_array = Array.new
 
 	i = 0
 
+	#This array holds the array returned by splitting each line of the file
 	temp_arr = []
 
 	cur_line = movie_file.gets
 
-	while cur_line
 
-		puts cur_line
+	=begin
+
+		This while loop checks to see if the file has ended and then splits the current line (cur_line)
+		and extracts all the desired data.
+
+	=end
+
+	while cur_line
 
 		temp_arr = cur_line.split("|")
 
