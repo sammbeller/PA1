@@ -40,6 +40,10 @@ def parse_movies(movie_file)
 
 		#This will hold the movie's review data
 		movie_array[i][4] = Array.new(2, Array.new)
+
+		movie_array[i][5] = 0
+
+		movie_array[i][6] = 0
 		
 		#This while loop puts each of the "tags" into an array together such that all tags make-up one element
 		#of the movie's array
@@ -74,7 +78,7 @@ def compute_proportions(user)
 
 	i = 0
 
-	while i <= 18
+	while i <= 17
 
 		user[0][1][i] = user[0][0][i] / total
 
@@ -105,6 +109,7 @@ def parse_reviews
 
 		temp_arr = cur_line.split
 
+		#This does not work
 		temp_arr.each {|el| el.to_i}
 
 
@@ -113,7 +118,7 @@ def parse_reviews
 
 			user_array[temp_arr[0]] = Array.new
 
-			user_array[0][0] = Array.new(2, Array.new)
+			user_array[0][0] = Array.new(2)
 
 			user_array[0][1] = Array.new(2, Array.new)
 
@@ -127,13 +132,30 @@ def parse_reviews
 
 		i = 0
 
-		while i <= 18
+		while i <= 17
 
 			user_array[temp_arr[0]][0][i] +=  tag_arr[i]
 
 			i += 1
 
 		end
+
+		user_array[temp_arr[0]][1][0] << temp_arr[1]
+
+		user_array[temp_arr[0]][1][1] << temp_arr[2]
+
+		movies[temp_arr[1]][4][0] <<temp_arr[3]
+
+		movies[temp_arr[1]][4][1] << temp_arr[2]
+
+		movies[temp_arr[1]][5] += 1
+
+		movies[temp_arr[1]][4][1].each { |el| movies[temp_arr[1]][6] += el }
+
+		movies[temp_arr[1]][6] /= movies[temp_arr[1]][5]
+
+		
+
 
 
 
