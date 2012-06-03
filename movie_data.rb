@@ -70,6 +70,18 @@ end
 
 #End parsing movie data
 
+
+
+
+
+
+
+
+
+
+
+
+
 def compute_proportions(user)
 
 	total = 0
@@ -87,6 +99,17 @@ def compute_proportions(user)
 	end
 
 end
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -132,6 +155,8 @@ def parse_reviews
 
 		i = 0
 
+
+		#Add movie's tags to user's tag list
 		while i <= 17
 
 			user_array[temp_arr[0]][0][i] +=  tag_arr[i]
@@ -140,9 +165,11 @@ def parse_reviews
 
 		end
 
-		user_array[temp_arr[0]][1][0] << temp_arr[1]
 
-		user_array[temp_arr[0]][1][1] << temp_arr[2]
+
+		user_array[temp_arr[0]][1][0] << temp_arr[1] #add movie to user's list of movies
+
+		user_array[temp_arr[0]][1][1] << temp_arr[2] #add rating to user's list of ratings
 
 		movies[temp_arr[1]][4][0] <<temp_arr[3]
 
@@ -154,13 +181,6 @@ def parse_reviews
 
 		movies[temp_arr[1]][6] /= movies[temp_arr[1]][5]
 
-		
-
-
-
-
-
-
 
 end
 
@@ -170,11 +190,12 @@ end
 
 
 
+def load_data(movie_array, user_array)
+
+end
 
 
 
-
-movies = parse_movies(movie_raw_data)
 
 
 
