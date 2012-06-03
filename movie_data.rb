@@ -1,35 +1,40 @@
 #movie_data.rb
 
+movie_raw_data = File.new("test.txt", "r")
 
-movies = []
+def parse_movies(movie_file)
 
-movie_raw_data = File.new(test.txt)
-
-def parse_movies(movie_file, movie_array)
+	movie_array = Array.new
 
 	i = 0
 
 	temp_arr = []
 
-	cur_line = gets movie_file
+	cur_line = movie_file.gets
 
 	while cur_line
 
-		temp_arr = cur_line.split(|)
+		puts cur_line
+
+		temp_arr = cur_line.split("|")
+
+		movie_array[i] = Array.new
+
+		movie_array[i][0] = temp_arr[1]
 
 		movie_array[i][1] = temp_arr[2]
 
-		movie_array[i][2] = temp_arr[3]
+		movie_array[i][2] = temp_arr[4]
 
-		movie_array[i][3] = temp_arr[5]
-
-		rem = 6
+		rem = 5
 
 		count = 0
 
+		movie_array[i][3] = Array.new
+		
 		while rem < temp_arr.size
 
-			movie_array[i][4][count] = temp_arr[rem].to_i
+			movie_array[i][3][count] = temp_arr[rem].to_i
 
 			count += 1
 
@@ -37,11 +42,20 @@ def parse_movies(movie_file, movie_array)
 
 		end
 
-		cur_line = gets movie_file
+		cur_line = movie_file.gets
+
+		i += 1
 
 	end
+
+	puts movie_array.inspect
+
+	return movie_array
 
 end
 
 
-parse_movies(movie_raw_data, movies).inspect
+movies = parse_movies(movie_raw_data)
+
+puts "word up"
+
