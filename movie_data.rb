@@ -48,8 +48,6 @@ def parse_movies(movie_file)
 
 	end
 
-	puts movie_array.inspect
-
 	return movie_array
 
 end
@@ -57,5 +55,4 @@ end
 
 movies = parse_movies(movie_raw_data)
 
-puts "word up"
 
