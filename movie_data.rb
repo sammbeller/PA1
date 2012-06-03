@@ -129,7 +129,7 @@ def parse_reviews
 
 		while i <= 18
 
-			user_array[0][0][i] +=  tag_arr[i]
+			user_array[temp_arr[0]][0][i] +=  tag_arr[i]
 
 			i += 1
 
