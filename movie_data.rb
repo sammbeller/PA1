@@ -133,7 +133,7 @@ def parse_reviews
 		temp_arr = cur_line.split
 
 		#This does not work
-		temp_arr.each {|el| el.to_i}
+		temp_arr.map {|el| el.to_i}
 
 
 		#If the user's array is empty, intialize
@@ -175,7 +175,7 @@ def parse_reviews
 
 		movies[temp_arr[1]][4][1] << temp_arr[2]
 
-		movies[temp_arr[1]][5] += 1
+		movies[temp_arr[1]][5] += 1 #increment views
 
 		movies[temp_arr[1]][4][1].each { |el| movies[temp_arr[1]][6] += el }
 
@@ -190,13 +190,17 @@ end
 
 
 
+
+
 def load_data(movie_array, user_array)
 
 end
 
 
 
+def popularity_list_views(movie_array)
 
+	movie_array.sort_by {|x| x[5] }
 
 
 
