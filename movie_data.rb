@@ -242,5 +242,18 @@ end
 
 
 
+ def most_similar(user, user_array)
+
+ 	similar_subset = Array.new
+
+ 	user_array.each {|other_user|  }
+
+
+
+
+
+
+
+
 
 
